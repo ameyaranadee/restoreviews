@@ -1,0 +1,42 @@
+<%- include("../partials/header") %>
+
+    <header class="jumbotron">
+        <div class="container">
+            <h1><i class="utensils icon"></i> Welcome To RestoReviews!</h1>
+            <p>View our hand-picked restaurants from all over the world</p>
+            <p>
+               <a class="btn btn-primary btn-lg" href="/restaurants/new">Add New Restaurant</a>
+            </p>
+        </div>
+    </header>
+    
+    <div class="row text-center" style="display:flex; flex-wrap: wrap;">
+       <% restaurants.forEach(function(restaurant){ %>
+           <div class="col-md-4 col-sm-6">
+               <div class="thumbnail">
+                  <img src="<%= restaurant.image %>">
+                  <div class="caption">
+                      <h4><%= restaurant.name %></h4>
+                      <% if (restaurant.rating === 0) { %>
+                        <em>No reviews yet.</em>
+                        <% } else { %>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star <% if (restaurant.rating > 1.5) { %> checked <% } %>"></span>
+                        <span class="fa fa-star <% if (restaurant.rating > 2.5) { %> checked <% } %>"></span>
+                        <span class="fa fa-star <% if (restaurant.rating > 3.5) { %> checked <% } %>"></span>
+                        <span class="fa fa-star <% if (restaurant.rating > 4.5) { %> checked <% } %>"></span>
+                        <% } %>
+                      <div>
+                        <span class="badge label-primary"><i class="thumbs up icon"></i> <%= restaurant.likes.length %></span>
+                    </div>
+                  </div>
+                  <p>
+                      <a href="/restaurants/<%= restaurant._id %>" class="btn btn-primary">More Info</a>
+                  </p>
+               </div>
+           </div>
+       <% }); %>
+   </div>
+
+
+<%- include("../partials/footer") %>

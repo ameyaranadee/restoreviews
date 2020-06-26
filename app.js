@@ -6,7 +6,7 @@ var express     = require("express"),
     cookieParser = require("cookie-parser"),
     LocalStrategy = require("passport-local"),
     flash        = require("connect-flash"),
-    Campground  = require("./models/campground"),
+    Restaurant  = require("./models/restaurant"),
     Comment     = require("./models/comment"),
     User        = require("./models/user"),
     session = require("express-session"),
@@ -15,13 +15,26 @@ var express     = require("express"),
     
 //requiring routes
 var commentRoutes    = require("./routes/comments"),
-    campgroundRoutes = require("./routes/campgrounds"),
+    reviewRoutes     = require("./routes/reviews"),
+    restaurantRoutes = require("./routes/restaurants"),
     indexRoutes      = require("./routes/index")
     
-mongoose.connect("mongodb://localhost/yelp_camp", {
+// mongoose.connect("mongodb://localhost/resto_app", {
+//     useNewUrlParser: true,
+//     useUnifiedTopology: true
+// });
+
+mongoose.connect('mongodb+srv://ameya:abelcristi07!@cluster0-ggsfu.mongodb.net/resto_app?retryWrites=true&w=majority', {
     useNewUrlParser: true,
-    useUnifiedTopology: true
+    useUnifiedTopology: true,
+	useCreateIndex: true
+}).then(() => {
+	console.log('Connected to DB!');
+}).catch(err => {
+	console.log('ERROR:', err.message);
 });
+
+
 app.use(bodyParser.urlencoded({extended: true}));
 app.set("view engine", "ejs");
 app.use(express.static(__dirname + "/public"));
@@ -37,6 +50,7 @@ app.use(require("express-session")({
     saveUninitialized: false
 }));
 
+app.locals.moment = require('moment');
 app.use(flash());
 app.use(passport.initialize());
 app.use(passport.session());
@@ -53,9 +67,10 @@ app.use(function(req, res, next){
 
 
 app.use("/", indexRoutes);
-app.use("/campgrounds", campgroundRoutes);
-app.use("/campgrounds/:id/comments", commentRoutes);
+app.use("/restaurants", restaurantRoutes);
+app.use("/restaurants/:id/comments", commentRoutes);
+app.use("/restaurants/:id/reviews", reviewRoutes);
 
-app.listen(3000, function() { 
-    console.log("Yelp Camp server has started!!!"); 
+app.listen(process.env.PORT, process.env.IP, function() { 
+    console.log("Resto Reviews has started!!!"); 
 });
