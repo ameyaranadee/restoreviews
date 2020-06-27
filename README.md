@@ -1,7 +1,7 @@
-# yelp-camp
-A site for all camping fans - "yelpcamp"
+# RestoReviews
+A site for all camping fans - "restoreviews"
 
-#YelpCamp
+#RestoReviews
 
 ##Initial Setup
 
