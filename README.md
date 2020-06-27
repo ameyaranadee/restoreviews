@@ -6,8 +6,8 @@ A site for all camping fans - "yelpcamp"
 ##Initial Setup
 
 Add Landing Page
-Add Campgrounds Page that lists all campgrounds
-Each Campground has:
+Add Restaurants Page that lists all restaurants
+Each Restaurant has:
 
 Name
 Image
@@ -15,25 +15,25 @@ Image
 
 Create our header and footer partials
 Add in Bootstrap
-##Creating New Campgrounds
+##Creating New Restaurants
 
-Setup new campground POST route
+Setup new restaurant POST route
 Add in body-parser
 Setup route to show form
 Add basic unstyled form
-##Style the campgrounds page
+##Style the restaurants page
 
 Add a better header/title
-Make campgrounds display in a grid
+Make restaurants display in a grid
 ##Style the Navbar and Form
 
 Add a navbar to all templates
-Style the new campground form
+Style the new restaurant form
 ##Add Mongoose
 
 Install and configure Mongoose
-Setup campground model
-Use campground model inside of our routes
+Setup restaurant model
+Use restaurant model inside of our routes
 ##Show Page
 
 Review the RESTful routes we've seen so far
@@ -52,7 +52,7 @@ Run the seeds file every time the server starts
 ##Add the Comment model!
 
 Make our errors go away!
-Display comments on campground show page
+Display comments on restaurant show page
 ##Comment New/Create
 
 Discuss nested routes
@@ -94,10 +94,10 @@ Use Express router to reoragnize all routes
 
 Associate users and comments
 Save author's name to a comment automatically
-##Users + Campgrounds
+##Users + Restaurants
 
-Prevent an unauthenticated user from creating a campground
-Save username+id to newly created campground
+Prevent an unauthenticated user from creating a restaurant
+Save username+id to newly created restaurant
 TODOS
 
 Add "back" redirect to login
@@ -120,7 +120,7 @@ Refactor middleware
 
 change styling in show template - comment delete/update
 
-UPATE/DELETE CAMPGROUND
+UPATE/DELETE RESTAURANT
 
 BOOTSTRAP NAV COLLPASE JS
 
@@ -138,6 +138,6 @@ Refactor middleware
 
 change styling in show template - comment delete/update
 
-UPDATE/DELETE CAMPGROUND
+UPDATE/DELETE RESTAURANT
 
 RESTFUL ROUTES
