@@ -1,6 +1,5 @@
 # RestoReviews
-A site for all camping fans - "restoreviews"
-
+For reviewing your favourite restaurants!
 #RestoReviews
 
 ##Initial Setup
